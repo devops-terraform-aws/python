@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    form {
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    label {
+        font-weight: bold;
+        margin-right: 10px;
+    }
+    input[type="text"] {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+</style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="text-center">Create EC2 Instance</h1>
+            <form method="post" class="form-group">
+                <label for="region">Region:</label>
+                <input type="text" class="form-control" name="region" id="region" required><br>
+                <label for="tag_name">Tag Name:</label>
+                <input type="text" class="form-control" name="tag_name" id="tag_name" required><br>
+                <input type="submit" class="btn btn-primary" value="Submit">
+            </form>
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Instance Creation</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <form method="post" id="form">
+            <div class="form-group">
+                <label for="region">Region:</label>
+                <input type="text" class="form-control" name="region" id="region">
+            </div>
+            <div class="form-group">
+                <label for="tag_name">Tag Name:</label>
+                <input type="text" class="form-control" name="tag_name" id="tag_name">
+            </div>
+            <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
+    </div>
+    <div class="alert alert-success" id="alert" style="display: none;"></div>
+    <script>
+        // Get the form element
+        const form = document.getElementById('form');
+        // Add an event listener to the form
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Make a POST request to the server
+            // ...
+            // Handle the server's response
+            if (response.status === 200) {
+                // Get the alert element
+                const alert = document.getElementById('alert');
+                // Update the text of the alert
+                alert.innerHTML = "Instance created with ID: " + response.data.instanceId;
+                // Show the alert
+                alert.style.display = "block";
+                // Add a class that triggers the transition
+                alert.classList.add("show-alert");
+            }
+        });
+    </script>
+</body>
+</html> -->

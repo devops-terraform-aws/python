@@ -7,6 +7,21 @@ This script allows the user to create an EC2 instance in a specified region usin
 - `boto3` library installed in the Python environment
 - A key pair created in the specified region, to allow logging into the EC2 instance.
 
+### To Run in `Browser Mode`
+1.  Run the commands:
+
+    `python3 -m venv venv` <br />
+    `source venv/bin/activate` <br />
+    `pip install Flask` <br />
+    `python -m flask --version` <br />
+    `pip install boto3`
+    `python app.py`
+
+### To Run on `CLI` or `Locally`
+1. Run the commands:
+
+    `python create_ec2.py`
+
 ## Usage
 1. Run the script using the command `python3 create_ec2.py`
 2. The script prompts the user to enter the region they want to create the EC2 instance in (e.g. us-east-1)
