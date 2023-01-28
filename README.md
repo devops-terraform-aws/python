@@ -9,28 +9,39 @@ This script allows the user to create an EC2 instance in a specified region usin
 
 ### To Run in `Browser Mode`
 1.  Set virtual evironment:
-
-    `python -m venv venv` <br />
-    `source venv/bin/activate` <br />
+    ```
+    python -m venv venv
+    ```
+    ```
+    source venv/bin/activate
+    ```
 
 2. Install required application 
-
-    `pip install Flask` <br />
-    `python -m flask --version` <br />
-    `pip install boto3` <br />
+    ```
+    pip install Flask
+    ```
+    ```
+    python -m flask --version
+    ```
+    ```
+    pip install boto3
+    ```
 
 3. Run application
-
-    `python app.py`
+    ```
+    python app.py
+    ```
 
 4. Go to the brower and run
-
-    `localhost:5000`
+    ```
+    localhost:5000
+    ```
 
 ### To Run on `CLI` or `Locally`
 1. Run the command:
-
-    `python create_ec2.py`
+    ```
+    python create_ec2.py
+    ```
 
 ## Usage
 1. The script prompts the user to enter the region they want to create the EC2 instance in (e.g. us-east-1)
