@@ -8,31 +8,36 @@ This script allows the user to create an EC2 instance in a specified region usin
 - A key pair created in the specified region, to allow logging into the EC2 instance.
 
 ### To Run in `Browser Mode`
-1.  Run the commands:
+1.  Set virtual evironment:
 
     `python -m venv venv` <br />
     `source venv/bin/activate` <br />
+
+2. Install required application 
+
     `pip install Flask` <br />
     `python -m flask --version` <br />
-    `pip install boto3`
+    `pip install boto3` <br />
+
+3. Run application
+
     `python app.py`
 
-2. Go to the brower and run
+4. Go to the brower and run
 
     `localhost:5000`
 
 ### To Run on `CLI` or `Locally`
-1. Run the commands:
+1. Run the command:
 
     `python create_ec2.py`
 
 ## Usage
-1. Run the script using the command `python3 create_ec2.py`
-2. The script prompts the user to enter the region they want to create the EC2 instance in (e.g. us-east-1)
-3. The script uses the `describe_images` method of the EC2 client to get the latest Ubuntu 20.04 LTS AMI
-4. The script then uses the `run_instances` method of the EC2 client to create the EC2 instance, using the specified AMI, instance type, key pair, and security group.
-5. The script also attaches a name tag to the instance, for easier identification
-6. The script prints the ID of the newly created instance
+1. The script prompts the user to enter the region they want to create the EC2 instance in (e.g. us-east-1)
+2. The script uses the `describe_images` method of the EC2 client to get the latest Ubuntu 20.04 LTS AMI
+3. The script then uses the `run_instances` method of the EC2 client to create the EC2 instance, using the specified AMI, instance type, key pair, and security group.
+4. The script also attaches a name tag to the instance, for easier identification
+5. The script prints the ID of the newly created instance
 
 ## Additional notes
 - The script uses the owner ID `099720109477`, which belongs to Canonical (the company behind Ubuntu). This is to ensure that only official Ubuntu AMIs are considered
