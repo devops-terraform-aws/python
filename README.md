@@ -10,12 +10,16 @@ This script allows the user to create an EC2 instance in a specified region usin
 ### To Run in `Browser Mode`
 1.  Run the commands:
 
-    `python3 -m venv venv` <br />
+    `python -m venv venv` <br />
     `source venv/bin/activate` <br />
     `pip install Flask` <br />
     `python -m flask --version` <br />
     `pip install boto3`
     `python app.py`
+
+2. Go to the brower and run
+
+    `localhost:5000`
 
 ### To Run on `CLI` or `Locally`
 1. Run the commands:
