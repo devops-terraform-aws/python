@@ -7,7 +7,7 @@
     <body>
         <h1>Create EC2 Instance</h1>
         <form method="post">
-            <label for="region">Region:</label>
+            <label for="region">Region
             <select name="region" id="region">
                 <option value="us-east-1">US East (N. Virginia) | us-east-1</option>
                 <option value="us-east-2">US East (Ohio) | us-east-2</option>
@@ -21,11 +21,18 @@
                 <option value="ap-south-1">Asia Pacific (Mumbai) | ap-south-1</option>
                 <option value="ap-southeast-1">Asia Pacific (Singapore) | ap-southeast-1</option>
                 <option value="ap-southeast-2">Asia Pacific (Sydney) | ap-southeast-2</option>
-            </select>
+            </select></label>
             <br>
-            <label for="tag_name">Tag Name:</label>
+            <label for="instance_type">Instance Type
+            <select name="instance_type" id="instance_type">
+                <option value="t2.micro">t2.micro</option>
+                <option value="t2.small">t2.small</option>
+                <option value="t2.medium">t2.medium</option>
+            </select></label>
+            <br>
+            <label for="tag_name">Tag Name
             <input type="text" name="tag_name" id="tag_name" autofocus required>
-            <input type="submit" value="Create">
+            <input type="submit" value="Create"></label>
         </form>
         <div class="response">
             {{ response }}

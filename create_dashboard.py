@@ -8,6 +8,7 @@ def index():
     if request.method == "POST":
         region = request.form["region"]
         tag_name = request.form["tag_name"]
+        instance_type = request.form["instance_type"]
         ec2 = boto3.client('ec2', region_name=region)
         response = ec2.describe_images(
             Owners=['099720109477'],
@@ -22,7 +23,7 @@ def index():
             ami_id = response['Images'][0]['ImageId']
             response = ec2.run_instances(
                 ImageId=ami_id,
-                InstanceType='t2.micro',
+                InstanceType=instance_type,
                 MinCount=1,
                 MaxCount=1,
                 KeyName='key_2023',
