@@ -2,7 +2,7 @@ form {
     width: 400px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(69, 59, 59);
     border-radius: 5px;
 }
 
@@ -35,4 +35,16 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #45a049;
+}
+
+body {
+    background-color: lightgray;
+}
+h1 {
+    color: blue;
+    text-align: center;
+}
+p {
+    font-family: verdana;
+    font-size: 20px;
 }
