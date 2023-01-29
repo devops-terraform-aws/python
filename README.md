@@ -8,7 +8,12 @@ This script allows the user to create an EC2 instance in a specified region usin
 - A key pair created in the specified region, to allow logging into the EC2 instance.
 
 ### To Run in `Browser Mode`
-1.  Set virtual evironment:
+1. Set alias of `python3` to `python`
+    ```
+    sudo ln -sf $(which python3) /usr/bin/python
+    ```
+
+2.  Set virtual evironment:
     ```
     python -m venv venv
     ```
@@ -16,7 +21,7 @@ This script allows the user to create an EC2 instance in a specified region usin
     source venv/bin/activate
     ```
 
-2. Install required application 
+3. Install required application 
     ```
     pip install Flask
     ```
@@ -27,12 +32,17 @@ This script allows the user to create an EC2 instance in a specified region usin
     pip install boto3
     ```
 
-3. Run application
-    ```
-    python app.py
-    ```
+4. To run application
+    - To create EC2
+        ```
+        python app.py
+        ```
+    - To destroy EC2
+        ```
+        destroy_dashboard.py
+        ```
 
-4. Go to the brower and run
+5. Go to the brower and run
     ```
     localhost:5000
     ```
