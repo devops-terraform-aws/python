@@ -10,6 +10,7 @@ def index():
         tag_name = request.form["tag_name"]
         ec2 = boto3.client('ec2', region_name=region)
 
+
         response = ec2.describe_images(
             Owners=['099720109477'],
             Filters=[

@@ -4,15 +4,19 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='create_style.css') }}">
     </head>
     <body>
-        <div class="container">
-            <h1 class="text-center">Create EC2 Instance</h1>
-            <form method="post" class="form-group">
-                <label for="region">Region:</label>
-                <input type="text" class="form-control" name="region" id="region" required><br>
-                <label for="tag_name">Tag Name:</label>
-                <input type="text" class="form-control" name="tag_name" id="tag_name" required><br>
-                <input type="submit" class="btn btn-primary" value="Submit">
-            </form>
-        </div>
+        <form method="post">
+            <label for="region">Region:</label>
+            <select name="region">
+              <option value="us-east-1">us-east-1</option>
+              <option value="us-west-2">us-west-2</option>
+              <option value="ap-southeast-1">ap-southeast-1</option>
+            </select>
+            <br>
+            <label for="tag_name">Tag Name:</label>
+            <input type="text" name="tag_name" required>
+            <br><br>
+            <input type="submit" value="Submit">
+          </form> 
+          
     </body>
 </html>
