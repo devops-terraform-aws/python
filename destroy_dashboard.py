@@ -14,10 +14,12 @@ def index():
         except botocore.exceptions.ClientError as e:
             if "InvalidInstanceID.Malformed" in str(e):
                 result = "Invalid instance ID"
+            elif "InvalidInstanceID.NotFound" in str(e):
+                result = "Instance ID not found"
             else:
                 result = "Instance termination not successful: " + str(e)
         return render_template('destroy_index.html', result=result)
     return render_template('destroy_index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

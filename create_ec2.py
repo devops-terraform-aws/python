@@ -4,6 +4,7 @@ region = input("Enter the region you want to create the EC2 instance in (e.g. us
 tag_name = input("Enter the tag name for the EC2 instance: ")
 ec2 = boto3.client('ec2', region_name=region)
 
+
 response = ec2.describe_images(
     Owners=['099720109477'],
     Filters=[

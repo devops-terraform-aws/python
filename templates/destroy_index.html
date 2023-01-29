@@ -2,13 +2,13 @@
 <html>
     <head>
         <title>Instance Terminator</title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='destroy_style.css') }}">
     </head>
     <body>
         <h1>Instance Terminator</h1>
         <form method="post">
             <label for="instance_id">Instance ID:</label>
-            <input type="text" name="instance_id" id="instance_id">
+            <input type="text" name="instance_id" id="instance_id" autofocus onfocus="this.value=''">
             <input type="submit" value="Terminate">
         </form>
         {% if result %}

@@ -44,7 +44,7 @@ def index():
         except IndexError:
             return "No images found that match the specified filters."
     else:
-        return render_template("index.html")
+        return render_template("create_index.html")
 
 if __name__ == "__main__":
     app.run()
