@@ -32,14 +32,14 @@ This script allows the user to create an EC2 instance in a specified region usin
     pip install boto3
     ```
 
-4. To run application
+4. To run application, make sure you are still on the virtual environment `venv`
     - To create EC2
         ```
-        python app.py
+        python create_dashboard.py
         ```
     - To destroy EC2
         ```
-        destroy_dashboard.py
+        python destroy_dashboard.py
         ```
 
 5. Go to the brower and run
