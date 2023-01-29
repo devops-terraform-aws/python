@@ -9,8 +9,6 @@ def index():
         region = request.form["region"]
         tag_name = request.form["tag_name"]
         ec2 = boto3.client('ec2', region_name=region)
-
-
         response = ec2.describe_images(
             Owners=['099720109477'],
             Filters=[
@@ -41,9 +39,9 @@ def index():
                     },
                 ]
             )
-            return "Instance created with ID: {}".format(response['Instances'][0]['InstanceId'])
+            return render_template("create_index.html", response = "Instance created with ID: {}".format(response['Instances'][0]['InstanceId']))
         except IndexError:
-            return "No images found that match the specified filters."
+            return render_template("create_index.html", response = "No images found that match the specified filters.")
     else:
         return render_template("create_index.html")
 
