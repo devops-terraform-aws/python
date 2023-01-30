@@ -1,0 +1,20 @@
+<!-- <html>
+  <head>
+    <title>AMIs</title>
+  </head>
+  <body>
+    <ul>
+      {% for ami in amis %}
+      <li>{{ ami['ImageId'] }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html> -->
+
+<form>
+    <select name="ami">
+        {% for ami in amis %}
+            <option value="{{ ami }}">{{ ami }}</option>
+        {% endfor %}
+    </select>
+</form>

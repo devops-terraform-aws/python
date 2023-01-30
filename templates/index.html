@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AMIs</title>
+  </head>
+  <body>
+    <form method="post" action="/amis">
+      <select name="region">
+        {% for region in regions %}
+        <option value="{{ region['RegionName'] }}">{{ region['RegionName'] }}</option>
+        {% endfor %}
+      </select>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
