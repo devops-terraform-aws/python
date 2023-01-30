@@ -7,6 +7,13 @@
     <body>
         <h1>Create EC2 Instance</h1>
         <form method="post">
+            <label>Select an AMI
+            <select name="selected_ami">
+              {% for ami in amis %}
+                <option value="{{ ami.ImageId }}">{{ ami.Name }}</option>
+              {% endfor %}
+            </select>
+            </label><br>
             <label for="region">Region
             <select name="region" id="region">
                 <option value="us-east-1">US East (N. Virginia) | us-east-1</option>
@@ -42,3 +49,4 @@
         {% endif %}
     </body>
 </html>
+
