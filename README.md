@@ -13,9 +13,17 @@ This script allows the user to create an EC2 instance in a specified region usin
     sudo ln -sf $(which python3) /usr/bin/python
     ```
 
-2.  Set virtual evironment:
+2.  Set virtual evironment for `Ubuntu`:
     ```
     python -m venv venv
+    ```
+    For `kali-linux`
+    ```
+    sudo apt install python3.11-venv
+    ```
+    Install `pip`
+    ```
+    python -m ensurepip --default-pip
     ```
     ```
     source venv/bin/activate
