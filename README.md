@@ -12,6 +12,9 @@ This script allows the user to create an EC2 instance in a specified region usin
     ```
     sudo ln -sf $(which python3) /usr/bin/python
     ```
+    ```
+    sudo apt install python3-venv
+    ```
 
 2.  Set virtual evironment:
     ```

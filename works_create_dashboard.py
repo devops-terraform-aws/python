@@ -20,8 +20,6 @@ def index():
         create_key = request.form.get("create_key")
         key_name = request.form.get("key_name")
         download_key = request.form.get("download_key")
-        
-        # Create the key and download it
         if create_key:
             ec2 = boto3.client('ec2', region_name=region)
             key_pair = ec2.create_key_pair(KeyName=key_name)
@@ -30,29 +28,30 @@ def index():
             key_data = io.StringIO(key_pair['KeyMaterial']).read().encode('utf-8')
             if download_key:
                 return send_file(io.BytesIO(key_data), as_attachment=True, download_name=key_name+'.pem')
-        
-        # Create the EC2 instance using the selected AMI, instance type, and key name
-        ec2 = boto3.client('ec2', region_name=region)
-        response = ec2.run_instances(
-            ImageId=selected_ami,
-            InstanceType=instance_type,
-            MinCount=1,
-            MaxCount=1,
-            KeyName=key_name,
-            SecurityGroups=['default'],
-            TagSpecifications=[
-                {
-                    'ResourceType': 'instance',
-                    'Tags': [
+            else:
+                return "Key created successfully"
+        else:
+            ec2 = boto3.client('ec2', region_name=region)
+            response = ec2.run_instances(
+                    ImageId=selected_ami,
+                    InstanceType=instance_type,
+                    MinCount=1,
+                    MaxCount=1,
+                    KeyName=key_name,
+                    SecurityGroups=['default'],
+                    TagSpecifications=[
                         {
-                            'Key': 'Name',
-                            'Value': tag_name
+                            'ResourceType': 'instance',
+                            'Tags': [
+                                {
+                                    'Key': 'Name',
+                                    'Value': tag_name
+                                },
+                            ]
                         },
                     ]
-                },
-            ]
-        )
-        return render_template("create_index.html", amis=ami_list, response="Instance created with ID: {}".format(response['Instances'][0]['InstanceId']))
+                )
+            return render_template("create_index.html", amis=ami_list, response="Instance created with ID: {}".format(response['Instances'][0]['InstanceId']))
     return render_template("create_index.html", amis=ami_list)
 
 
