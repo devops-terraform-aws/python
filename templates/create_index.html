@@ -30,22 +30,48 @@
             <label for="tag_name">Tag Name
             <input type="text" name="tag_name" id="tag_name" autofocus required>
             </label><br>
-            <label for="key_name">Key Name (optional)
-            <input type="text" name="key_name" id="key_name">
+            <label for="key_name">Key Name
+            <select name="key_name" id="key_name">
+                <option value="">Select a key or leave empty</option>
+                {% for key in key_names %}
+                <option value="{{ key }}">{{ key }}</option>
+                {% endfor %}
+            </select>
             </label><br>
             <label for="create_key">Create Key
             <input type="checkbox" name="create_key" id="create_key" value="true">
-            </label><br>
+            </label>
+            <div id="new_key" style="display: none">
+                <label for="key_name">New Key Name
+                <input type="text" name="new_key_name" id="new_key_name">
+                </label><br>
+            </div>
             <label for="download_key">Download Key
-            <input type="checkbox" name="download_key" id="download_key" value="true">
+            <input type="checkbox" name="download_key" id="download_key" value="true" disabled>
             </label><br>
+            <script>
+                document.getElementById("create_key").addEventListener("change", function() {
+                    var newKey = document.getElementById("new_key");
+                    var createKey = document.getElementById("create_key");
+                    var downloadKey = document.getElementById("download_key");
+                    if (createKey.checked) {
+                        newKey.style.display = "block";
+                        downloadKey.disabled = false;
+                    } else {
+                        newKey.style.display = "none";
+                        downloadKey.disabled = true;
+                    }
+                });
+            </script>
             <input type="submit" value="Create"></label>
         </form>
         <div class="response">
             {{ response }}
         </div>
-        {% if response %}
-        {% else %}
+        {% if error %}
+        <div class="error">
+            {{ error }}
+        </div>
         {% endif %}
     </body>
 </html>
